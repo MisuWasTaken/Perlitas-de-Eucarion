@@ -9,8 +9,35 @@
     <link rel="stylesheet" href="Estilo.css">
 </head>
 
+<script>
+
+    let tema_musical = {
+        titulo: "Musica de fondo",
+        archivo: "assets/SomeCatalanMysteries.mp3",
+        audio: false,
+
+        reproducir: function () {
+            console.log("-- reproducir musica --");
+
+            if (!this.audio) {
+                this.audio = new Audio(this.archivo);
+            }
+
+            this.audio.play();
+        },
+
+        detener: function () {
+            console.log("-- detener musica --");
+
+            if (this.audio) {
+                this.audio.pause();
+            }
+        },
+    };
+
+</script>
+
 <body>
-    <audio id="musicaFondo" src="assets/SomeCatalanMysteries.mp3" loop></audio>
     <header>
         <h1> Perlitas de Eucarion </h1>
         <p> Sistema de administracion de Bisuteria </p>
@@ -26,6 +53,10 @@
             <li><a href="Materiales.html"> Materiales</a></li>
         </ul>
     </nav>
+    <div class="musica">
+            <button type="button" onclick="tema_musical.reproducir()">Reproducir musica</button>
+            <button type="button" onclick="tema_musical.detener()">Detener musica</button>
+        </div>
 
     <main>
 
@@ -63,8 +94,6 @@
     <footer>
         <a href="https://www.instagram.com/_perlitas_de_eucarion_/"> Siguenos aqui</a>
     </footer>
-
-    <script src="assets/musica.js"></script>
 </body>
 
 </html>
