@@ -1,24 +1,25 @@
 body {
     font-family: Helvetica, sans-serif;
-    background-color: white;
-    color: black;
+    background-color: #FFF5F7;
+    color: #602437;
 }
 
 header {
-    background-color: lightgray;
+    background-color: #8A2846;
+    color: white;
     padding: 20px;
 }
 
 nav {
-    background-color: whitesmoke;
+    background-color: #FFCAD4;
     padding: 15px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid #E05780;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    background-color: gainsboro;
+    background-color: #FFCAD4;
 }
 
 nav li {
@@ -26,12 +27,12 @@ nav li {
 }
 
 nav a {
-    color: black;
+    color: #602437;
     text-decoration: underline;
 }
 
 nav a:hover {
-    color: green;
+    color: #B9375E;
 }
 
 main {
@@ -42,25 +43,26 @@ section {
     background-color: white;
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid lightgray;
+    border: 1px solid #FFCAD4;
 }
 
 section a {
-    color: black;
+    color: #B9375E;
     text-decoration: underline;
 }
 
 section a:hover {
-    color: green;
+    color: #E05780;
 }
 
 footer {
-    background-color: lightgray;
+    background-color: #8A2846;
+    color: white;
     padding: 15px;
     margin-top: 30px;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid #602437;
 }
 
 .mensaje_error{
-    color:red;
+    color: #B9375E;
 }

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title> Productos - Perlitas de Eucarion </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+
+    <script>
+        function procesar_producto() {
+            console.log("-- funcion procesar_producto --");
+
+            limpiar_errores();
+
+            const formulario = document.getElementById("form_producto");
+            const datos_formulario = new FormData(formulario);
+
+            var nombre = datos_formulario.get("campo_nombre");
+            var categoria = datos_formulario.get("campo_categoria");
+            var precio = datos_formulario.get("campo_precio");
+            var stock = datos_formulario.get("campo_stock");
+
+            console.log("nombre = " + nombre);
+            console.log("categoria = " + categoria);
+            console.log("precio = " + precio);
+            console.log("stock = " + stock);
+
+            if (!validar_texto(nombre)) {
+                let caja_error = document.getElementById("mensaje_nombre");
+                caja_error.innerHTML = "Debe ingresar un nombre";
+            }
+
+            if (!validar_texto(categoria)) {
+                let caja_error = document.getElementById("mensaje_categoria");
+                caja_error.innerHTML = "Debe ingresar una categoria";
+            }
+
+            if (!validar_cantidad(precio)) {
+                let caja_error = document.getElementById("mensaje_precio");
+                caja_error.innerHTML = "El precio debe ser mayor a 0";
+            }
+
+            if (!validar_cantidad(stock)) {
+                let caja_error = document.getElementById("mensaje_stock");
+                caja_error.innerHTML = "El stock debe ser mayor a 0";
+            }
+        }
+
+        function validar_texto(texto_ingresado) {
+            console.log("--- funcion validar texto ---");
+
+            texto_ingresado = texto_ingresado.trim();
+            var valido = (texto_ingresado.length > 0);
+
+            return valido;
+        }
+
+        function validar_cantidad(cantidad_ingresada) {
+            console.log("--- funcion validar cantidad ---");
+
+            cantidad_ingresada = cantidad_ingresada.trim();
+
+            var valido = (cantidad_ingresada.length > 0);
+            valido = valido && !isNaN(cantidad_ingresada);
+
+            if (valido) {
+                valido = parseInt(cantidad_ingresada) > 0;
+            }
+
+            return valido;
+        }
+
+        function limpiar_errores() {
+            console.log("--- funcion limpiar errores ---");
+
+            const lista_errores = document.getElementsByClassName("mensaje_error");
+
+            for (const elemento of lista_errores) {
+                elemento.innerHTML = "";
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1> Productos - Perlitas de Eucarion </h1>
+        <p> Sistema de administracion de Bisuteria </p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="Index.html">Inicio</a></li>
+            <li><a href="Registrar.html">Registrar venta</a></li>
+            <li><a href="Ventas.html">Ver ventas</a></li>
+            <li><a href="Productos.html">Productos</a></li>
+            <li><a href="Materiales.html"> Materiales</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+
+            <h2> Registrar producto </h2>
+
+            <form id="form_producto">
+
+                <fieldset>
+
+                    <legend> Nuevo producto </legend>
+
+                    <label for="campo_nombre">Nombre:</label>
+                    <input type="text" name="campo_nombre" id="campo_nombre">
+                    <span class="mensaje_error" id="mensaje_nombre"></span>
+                    <br>
+
+                    <label for="campo_categoria">Categoria:</label>
+                    <input type="text" name="campo_categoria" id="campo_categoria">
+                    <span class="mensaje_error" id="mensaje_categoria"></span>
+                    <br>
+
+                    <label for="campo_precio">Precio:</label>
+                    <input type="text" name="campo_precio" id="campo_precio">
+                    <span class="mensaje_error" id="mensaje_precio"></span>
+                    <br>
+
+                    <label for="campo_stock">Stock:</label>
+                    <input type="text" name="campo_stock" id="campo_stock">
+                    <span class="mensaje_error" id="mensaje_stock"></span>
+                    <br>
+
+                    <button type="button" onclick="procesar_producto()">Registrar producto</button>
+
+                    <button type="reset">Limpiar</button>
+
+                </fieldset>
+
+            </form>
+
+        </section>
+
+        <section>
+            <h2> Productos disponibles </h2>
+
+            <table>
+
+            <caption> Lista de productos </caption>
+
+            <tr>
+                <th> Nombre </th>
+                <th> Categoria </th>
+                <th> Precio </th>
+                <th> Stock </th>
+            </tr>
+
+            <tr>
+                <td> Collar de perlas </td>
+                <td> Collares </td>
+                <td> $5.000 </td>
+                <td> 12 </td>
+            </tr>
+
+            <tr>
+                <td> Pulsera de perlas </td>
+                <td> Pulseras </td>
+                <td> $8.000 </td>
+                <td> 7 </td>
+            </tr>
+
+            <tr>
+                <td> Aros de titanio </td>
+                <td> Aros </td>
+                <td> $5.000 </td>
+                <td> 20 </td>
+            </tr>
+
+        </table>
+
+    </section>
+
+</main>
+
+    <footer>
+        <p> Perlitas de Eucarion </p>
+    </footer>
+
+</body>
+</html>
