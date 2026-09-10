@@ -8,6 +8,7 @@ header {
     background-color: #8A2846;
     color: white;
     padding: 20px;
+    position: relative;
 }
 
 nav {
@@ -65,4 +66,12 @@ footer {
 
 .mensaje_error{
     color: #B9375E;
+}
+
+.logo{
+    width: 134px;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    right: 90px;
 }
